@@ -50,8 +50,17 @@
 
         h1 {
             font-family: 'Staatliches';
-            color: #131313;
+            font-weight: bold;
+            color: #000000;
             margin-top: 0px; /* Moves h1 15px above its default position */
+        }
+
+        h2 {
+            font-family: 'Lato';
+            font-weight: bold;
+            color: #0c6bd2;
+            margin-top: 0px; 
+            /* font-size: 22px; */
         }
 
         img.logo {
@@ -70,7 +79,7 @@
         img.profile {
             float: left;
             margin-right: 20px; /* Add space between the image and the text */
-            max-width: 450px; /* Make the profile image larger */
+            max-width: 400px; /* Make the profile image larger */
             height: auto; /* Maintains the aspect ratio */
         }
 
@@ -105,10 +114,11 @@
                 margin-left: 0;
             }
 
-            .logo {
+            img.logo {
                 position: relative;
                 display: block;
                 margin: 0 auto;
+                margin-bottom: 25px;
             }
 
             .profile-container {
@@ -117,14 +127,20 @@
             }
 
             img.profile {
+                position: relative;
                 float: none;
                 margin-right: 0;
                 display: block;
                 margin: 0 auto;
+                width: 300px;
             }
 
             p {
                 text-align: center;
+            }
+            h2 {
+                text-align: center;
+                margin-top: 20px;
             }
         }
     </style>
@@ -146,11 +162,12 @@
 
     <main>
         <section id="bio">
-            <!-- <h1>about me</h1> -->
+            <h1>about me</h1>
             <div class="profile-container">
                 <img src="./images/profile.jpg" alt="Ina Shkurti Picture" class="profile">
-                <h1>Ina Shkurti  /  About Me</h1>
-                <p>I am a geographer and GIS specialist with a decade of experience working in Amazonia. I work with organizations, institutions, and communities engaged in territorial and cultural mapping. I am particularly interested in the creation of web maps, interactive map platforms (online and offline), geospatial data analysis and geo-storytelling.</p>
+                <h2>Ina Shkurti</h2>
+                <p>I am a geographer and GIS specialist with a decade of experience working in Latin America and Amazonia. I like to work with organizations, institutions, and communities engaged in territorial and cultural mapping. I am particularly interested in the creation of web maps, interactive map platforms (online and offline), geospatial data analysis and geo-storytelling.</p>
+                <p>I have a BA in Geography and a Certificate in Geographic Information Systems from the University of Massachussets Amherst, and I am currently pursuing a PhD in Geography at the University of North Carolina at Chapel Hill.</p>
             </div>
         </section>
     </main>
