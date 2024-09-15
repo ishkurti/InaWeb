@@ -62,6 +62,13 @@
             height: auto;
         }
 
+        img.mapa {
+            float: left;
+            margin-right: 20px; /* Add space between the image and the text */
+            max-width: 700px; /* Make the profile image larger */
+            height: auto; /* Maintains the aspect ratio */
+        }
+
         /* Media query for mobile responsiveness */
         @media (max-width: 768px) {
             body {
@@ -95,6 +102,14 @@
                 margin: 0 auto;
                 margin-bottom: 25px;
             }
+            img.mapa {
+                position: relative;
+                float: none;
+                margin-right: 0;
+                display: block;
+                margin: 0 auto;
+                width: 400px;
+            }
         }
     </style>
 </head>
@@ -109,14 +124,17 @@
         <ul>
             <li><a href="index.html">about</a></li>
             <li><a href="research.html">research</a></li>
-            <li><a href="consulting.html">consulting</a></li>
+            <!-- <li><a href="consulting.html">consulting</a></li> -->
         </ul>
     </nav>
 
     <main>
         <section id="consulting">
             <h1>research</h1>
-            <p>I am a critical cartographer, interested in questions of community mapping, data sovereignty, and offline-first interactive maps and archives.</p>
+            <p>I research participatory community mapping methodologies, data sovereignty, oral histories and digital archives.</p>
+            <p>I am particularly interested in offline-first mapping technologies and their potential to support Indigenous self-determination.</p>
+            <br>
+            <img src="./images/mapa.jpeg" alt="mapa" class="mapa">
         </section>
     </main>
 
