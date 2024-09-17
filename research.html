@@ -15,7 +15,7 @@
 
         nav {
             position: absolute;
-            top: 130px; /* Moved down to allow space for logo */
+            top: 130px;
             left: 30px;
         }
 
@@ -30,10 +30,9 @@
 
         nav ul li a {
             text-decoration: none;
-            /* font-weight: bold; */
             font-family: 'Calibri', sans-serif;
             color: #0c6bd2;
-            font-size: 18px; /* Adjust the font size as needed */
+            font-size: 18px;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -44,29 +43,34 @@
         }
 
         main {
-            margin-left: 150px;
+            margin-left: 160px; /* Adds space between the main content and navbar/logo */
             padding: 20px;
         }
 
         h1 {
             font-family: 'Staatliches';
             color: #131313;
-            margin-top: 0px; /* Moves h1 15px above its default position */
+            margin-top: 0px;
         }
 
         img.logo {
             position: absolute;
             top: 10px;
             left: 15px;
-            width: 110px; /* Adjust size as needed */
+            width: 110px;
             height: auto;
         }
 
         img.mapa {
             float: left;
-            margin-right: 20px; /* Add space between the image and the text */
-            max-width: 700px; /* Make the profile image larger */
-            height: auto; /* Maintains the aspect ratio */
+            margin-right: 20px;
+            max-width: 590px;
+            height: auto;
+        }
+
+        .clearfix {
+            max-width: 600px; /* Restricts the width of the text and image container */
+            clear: both;
         }
 
         /* Media query for mobile responsiveness */
@@ -93,7 +97,8 @@
             }
 
             main {
-                margin-left: 0;
+                margin-left: 0; /* Removes the large margin for mobile */
+                padding: 10px; /* Reduces padding for mobile */
             }
 
             img.logo {
@@ -102,6 +107,7 @@
                 margin: 0 auto;
                 margin-bottom: 25px;
             }
+            
             img.mapa {
                 position: relative;
                 float: none;
@@ -110,12 +116,16 @@
                 margin: 0 auto;
                 width: 300px;
             }
+
+            .clearfix {
+                max-width: 100%;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Wrap the logo image inside an anchor tag for redirection -->
     <a href="index.html">
         <img src="./images/compass.png" alt="Logo" class="logo">
     </a>
@@ -124,17 +134,19 @@
         <ul>
             <li><a href="index.html">about</a></li>
             <li><a href="research.html">research</a></li>
-            <!-- <li><a href="consulting.html">consulting</a></li> -->
         </ul>
     </nav>
 
     <main>
-        <section id="consulting">
-            <h1>research</h1>
-            <p>I research community mapping methodologies, data sovereignty, oral histories and digital archives.</p>
-            <p>I am particularly interested in offline-first mapping technologies and their potential to support Indigenous self-determination.</p>
-            <br>
-            <img src="./images/mapa.jpeg" alt="mapa" class="mapa">
+        <section id="research">
+            <div class="clearfix">
+                <h1>research</h1>
+                <p>I explore community-based mapping methodologies with a focus on data sovereignty, oral histories, and the creation of culturally responsive digital archives.</p>
+                <p>I am particularly interested in offline-first mapping technologies and their potential to support Indigenous self-determination, especially in territories with limited internet access.</p> 
+                <p>I work with a variety of mapping software and tools, including, but not limited to: QGIS, Leaflet, MapBox, ArcGIS Pro, ArcGIS Online, and Google Earth Engine.</p>
+                <br>
+                <img src="./images/mapa.jpeg" alt="mapa" class="mapa">
+            </div>
         </section>
     </main>
 
