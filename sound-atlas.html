@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sound atlas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 40px;
+            background-color: white;
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+        }
+
+        nav {
+            position: absolute;
+            top: 130px;
+            left: 30px;
+        }
+
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { margin-bottom: 10px; }
+
+        nav ul li a {
+            text-decoration: none;
+            font-family: 'Calibri', sans-serif;
+            color: #0c6bd2;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: rgb(255, 250, 107);
+            color: black;
+            text-decoration: underline;
+        }
+
+        main { margin-left: 150px; padding: 20px; }
+
+        h1 {
+            font-family: 'Staatliches', sans-serif;
+            font-weight: bold;
+            font-size: 28px;
+            color: #000000;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        img.logo {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 110px;
+            height: auto;
+        }
+
+        .clearfix {
+            max-width: 600px;   /* your text column width */
+            clear: both;
+        }
+
+        /* 🔧 IMAGE ROWS — apply on all screen sizes */
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 16px 0;
+        }
+        .image-row img {
+            flex: 0 0 48%;      /* two images per row */
+            max-width: 48%;
+            height: auto;
+            display: block;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body { margin: 20px; }
+
+            nav {
+                position: relative;
+                top: 0;
+                left: 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            nav ul { display: flex; justify-content: center; }
+            nav ul li { margin: 0 10px; }
+
+            main { margin-left: 0; padding: 10px; }
+
+            img.logo {
+                position: relative;
+                display: block;
+                margin: 0 auto 25px;
+            }
+
+            .clearfix { max-width: 100%; margin: 0 auto; }
+
+            /* Stack images on phones so they’re not cramped */
+            .image-row { flex-direction: column; }
+            .image-row img { max-width: 100%; flex-basis: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html">
+        <img src="./images/compass.png" alt="Logo" class="logo">
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">about</a></li>
+            <li><a href="research.html">research</a></li>
+            <li><a href="sound-atlas.html">sound atlas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sound-atlas">
+            <div class="clearfix">
+                <h1>Atlas of Albanian Sound</h1>
+
+                <!-- Top two images -->
+                <div class="image-row">
+                    <img src="./images/sound2.png" alt="Sound Image 1" loading="lazy">
+                    <img src="./images/sound3.png" alt="Sound Image 2" loading="lazy">
+                </div>
+
+                <p>Started in 2023, the <em>Atlas of Albanian Sound</em> is an ongoing project that maps the entanglements of sound, place, and memory in an often overlooked period: early 20th-century Albania. The fall of the Ottoman Empire and the redrawing of nation-state borders that followed in the Balkans displaced many communities, particularly Muslim, Roma, and Jewish groups. This project brings together the most comprehensive collection of early 78 rpm recordings, oral histories, discographic, and historical research to trace sonic geographies across Albania and its diasporas. It is an attempt to retrace the steps of these often cross-border and multi-ethnic communities by uncovering the music and the musicians who carried their stories through sound.</p>
+
+                <p>Through collaborations with private collectors in the US and Greece, I am currently digitizing and remastering more than 300 songs originally recorded on shellac discs. Alongside this work, I am building a comprehensive database that documents not only the songs themselves but also the musicians and communities behind them. The ultimate goal is to share these songs through a freely available spatial archive, where sound, place, and history can be explored together.</p>
+
+                <p>As a researcher, I also explore how orality and listening (or, the oral and the aural) can serve as cartographic method, revealing connections, displacements, and resonances that remain invisible on conventional maps and archives. My aim with this project is to reimagine the archive as a living and collective space of memory, and to provoke its boundaries.</p>
+
+                <p>This project is a labor of love and has benefited greatly from the generosity of collectors, traditional musicians, elders, and scholars who have shared their knowledge with me.</p>
+
+                <!-- Bottom two images -->
+                <div class="image-row">
+                    <img src="./images/sound.jpg" alt="Sound Image 3" loading="lazy">
+                    <img src="./images/sound1.jpg" alt="Sound Image 4" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
