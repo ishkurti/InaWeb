@@ -1,175 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>research | cartomemorias</title>
-     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Barlow', sans-serif;
-            margin: 40px;
-            background-color: white;
-            color: rgb(0, 0, 0);
-            font-size: 15px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>research | cartomemorias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Barlow', sans-serif;
+      margin: 40px;
+      background-color: white;
+      color: #000;
+      font-size: 15px;
+    }
 
-        nav {
-            position: absolute;
-            top: 150px;
-            left: 30px;
-        }
+    nav {
+      position: absolute;
+      top: 150px;
+      left: 30px;
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        nav ul li {
-            margin-bottom: 10px;
-        }
+    nav ul li {
+      margin-bottom: 10px;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            font-family: 'Barlow', sans-serif;
-            color: #0c6bd2;
-            font-size: 18px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    nav ul li a {
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      color: #0c6bd2;
+      font-size: 18px;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        nav ul li a:hover {
-            background-color: rgb(255, 250, 107);
-            color: black;
-            text-decoration: underline;
-        }
+    nav ul li a:hover {
+      background-color: rgb(255, 250, 107);
+      color: black;
+      text-decoration: underline;
+    }
 
-        main {
-        margin-left: 150px;
-        padding: 20px;
-        }
+    main {
+      margin-left: 150px;
+      padding: 20px;
+    }
 
-        h1 {
-        font-family: 'Staatliches', sans-serif;
-        font-weight: bold;
-        font-size: 28px;   /* pick a size you like */
-        color: #000000;
-        margin-top: 0;
-        text-align: left;  /* makes sure they’re aligned the same */
-        }
+    h1 {
+      font-family: 'Staatliches', sans-serif;
+      font-weight: bold;
+      font-size: 28px;
+      color: #000;
+      margin-top: 0;
+      text-align: left;
+    }
 
-        img.logo {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 135px; /* Adjust size as needed */
-            height: auto;
-            rotate: 25deg;
-        }
+    /* Logo */
+    img.logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 135px;
+      height: auto;
+      rotate: 25deg;
+      transform-origin: center;
+      animation: spin 20s linear infinite;
+    }
 
-         /* Animation for spinning the logo */
-        @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-        }
+    /* Clockwise spin */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-        /* Apply on hover only for desktop */
+    /* Reverse direction on hover (for desktop only) */
+    /* @media (min-width: 769px) {
+      img.logo:hover {
+        animation-direction: reverse;
+        animation-play-state: running;
+      }
+    } */
+
+     /* Stop spinning on hover (for desktop) */
         @media (min-width: 769px) {
         img.logo:hover {
-        animation: spin 5s linear infinite;
-        transform-origin: center;
+        animation-play-state: paused;
         }
         }
 
-        img.mapa {
-            float: left;
-            margin-right: 20px;
-            max-width: 590px;
-            height: auto;
-        }
+    /* Map image */
+    img.mapa {
+      float: left;
+      margin-right: 20px;
+      max-width: 590px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .clearfix {
-            max-width: 600px; /* Restricts the width of the text and image container */
-            clear: both;
-        }
+    .clearfix {
+      max-width: 600px;
+      clear: both;
+    }
 
-        /* Media query for mobile responsiveness */
-        @media (max-width: 768px) {
-            body {
-                margin: 20px;
-            }
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      body {
+        margin: 20px;
+      }
 
-            nav {
-                position: relative;
-                top: 0;
-                left: 0;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+      nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-            nav ul {
-                display: flex;
-                justify-content: center;
-            }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
 
-            nav ul li {
-                margin: 0 10px;
-            }
+      nav ul li {
+        margin: 0 10px;
+      }
 
-            main {
-                margin-left: 0; /* Removes the large margin for mobile */
-                padding: 10px; /* Reduces padding for mobile */
-            }
+      main {
+        margin-left: 0;
+        padding: 10px;
+      }
 
-            img.logo {
-                position: relative;
-                display: block;
-                margin: 0 auto;
-                margin-bottom: 25px;
-            }
-            
-            img.mapa {
-                position: relative;
-                float: none;
-                margin-right: 0;
-                display: block;
-                margin: 0 auto;
-                width: 300px;
-            }
+      img.logo {
+        position: relative;
+        display: block;
+        margin: 0 auto 25px;
+      }
 
-            .clearfix {
-                max-width: 100%;
-                margin: 0 auto;
-            }
-        }
-    </style>
+      img.mapa {
+        float: none;
+        display: block;
+        margin: 0 auto 16px;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+
+      .clearfix {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <a href="index.html">
-        <img src="./images/compass6.png" alt="Logo" class="logo">
-    </a>
+  <a href="index.html">
+    <img src="./images/compass6.png" alt="Logo" class="logo">
+  </a>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">about</a></li>
-            <li><a href="research.html">research</a></li>
-            <li><a href="sound-atlas.html">sound atlas</a></li>
+  <nav>
+    <ul>
+      <li><a href="index.html">about</a></li>
+      <li><a href="research.html">research</a></li>
+      <li><a href="sound-atlas.html">sound atlas</a></li>
+    </ul>
+  </nav>
 
-        </ul>
-    </nav>
-
-    <main>
-        <section id="research">
-            <div class="clearfix">
-                <h1>RESEARCH</h1>
-                <p>My research and professional work sit at the intersection of digital geographies and feminist political ecology. I explore community-based mapping methodologies with a focus on data sovereignty, oral histories, and the development of culturally responsive digital tools and archives.</p>
-                <p>I am particularly interested in how mapping and geo-storytelling can be co-designed to support Indigenous self-determination and territorial governance in Amazonia and beyond. Over the past decade, I have collaborated with Indigenous communities and organizations across the Amazon regions of Ecuador, Peru, and Colombia, as well as on research projects in the United States, Albania, Greece, Paraguay, Mozambique and Kenya.</p> 
-                <p>My practice integrates diverse cartographic tools and media, including but not limited to: pen, paper, oral narratives, audiovisual recordings, historical maps, QGIS, Leaflet, the ArcGIS Suite, and Google Earth Engine.</p>
-                <br>
-                <img src="./images/mapa.png" alt="mapa" class="mapa">
-            </div>
-        </section>
-    </main>
+  <main>
+    <section id="research">
+      <div class="clearfix">
+        <h1>RESEARCH</h1>
+        <p>My research and professional work sit at the intersection of digital geographies and feminist political ecology. I explore community-based mapping methodologies with a focus on data sovereignty, oral histories, and the development of culturally responsive digital tools and archives.</p>
+        <p>I am particularly interested in how mapping and geo-storytelling can be co-designed to support Indigenous self-determination and territorial governance in Amazonia and beyond. Over the past decade, I have collaborated with Indigenous communities and organizations across the Amazon regions of Ecuador, Peru, and Colombia, as well as on research projects in the United States, Albania, Greece, Paraguay, Mozambique and Kenya.</p> 
+        <p>My practice integrates diverse cartographic tools and media, including but not limited to: pen, paper, oral narratives, audiovisual recordings, historical maps, QGIS, Leaflet, the ArcGIS Suite, and Google Earth Engine.</p>
+        <br>
+        <img src="./images/mapa.png" alt="mapa" class="mapa" width="1200" height="800">
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
