@@ -1,76 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sound atlas | cartomemorias</title>
-     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Barlow', sans-serif;
-            margin: 40px;
-            background-color: white;
-            color: rgb(0, 0, 0);
-            font-size: 15px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sound atlas | cartomemorias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Barlow', sans-serif;
+      margin: 40px;
+      background-color: white;
+      color: #000;
+      font-size: 15px;
+    }
 
-        nav {
-            position: absolute;
-            top: 150px;
-            left: 30px;
-        }
+    nav {
+      position: absolute;
+      top: 150px;
+      left: 30px;
+    }
 
-        nav ul { list-style-type: none; padding: 0; }
-        nav ul li { margin-bottom: 10px; }
+    nav ul { list-style-type: none; padding: 0; }
+    nav ul li { margin-bottom: 10px; }
 
-        nav ul li a {
-            text-decoration: none;
-            font-family: 'Barlow', sans-serif;
-            color: #0c6bd2;
-            font-size: 18px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        nav ul li a:hover {
-            background-color: rgb(255, 250, 107);
-            color: black;
-            text-decoration: underline;
-        }
+    nav ul li a {
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      color: #0c6bd2;
+      font-size: 18px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: rgb(255, 250, 107);
+      color: black;
+      text-decoration: underline;
+    }
 
-        main { margin-left: 150px; padding: 20px; }
+    main { margin-left: 150px; padding: 20px; }
 
-        h1 {
-            font-family: 'Staatliches', sans-serif;
-            font-weight: bold;
-            font-size: 28px;
-            color: #000000;
-            margin-top: 0;
-            text-align: left;
-        }
+    h1 {
+      font-family: 'Staatliches', sans-serif;
+      font-weight: bold;
+      font-size: 28px;
+      color: #000;
+      margin-top: 0;
+      text-align: left;
+    }
 
-       /* img.logo {
-              position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 135px; 
-            height: auto;
-            rotate: 40deg;
-        } */
-
-         /* Animation for spinning the logo */
-       /* @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-        } */
-
-        /* Apply on hover only for desktop */
-       /* @media (min-width: 769px) {
-        img.logo:hover {
-        animation: spin 5s linear infinite;
-        transform-origin: center;
-        }
-        } */
-
-        img.logo {
+    img.logo {
       position: absolute;
       top: 15px;
       left: 15px;
@@ -80,233 +57,318 @@
       transform-origin: center;
       animation: spin 20s linear infinite;
     }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @media (min-width: 769px) { img.logo:hover { animation-play-state: paused; } }
 
-    /* Clockwise spin */
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .clearfix { max-width: 600px; clear: both; }
+
+    .image-row { display: flex; justify-content: space-between; gap: 15px; margin: 16px 0; }
+    .image-row img { flex: 0 0 48%; max-width: 48%; height: auto; display: block; }
+
+    .audio-card {
+      margin: 18px 0 28px;
+      padding: 14px 16px;
+      border: 1px solid #fdcbcb;
+      border-radius: 12px;
+      background: #fffbe6;
+      max-width: 600px;
+    }
+    .audio-title { font-weight: 600; margin-bottom: 4px; line-height: 1.25; color: #000; }
+    .audio-note { font-weight: 400; font-style: italic; color: #444; }
+    .audio-meta { font-size: 14px; color: #444; font-style: italic; margin-bottom: 8px; line-height: 1.4; }
+    .audio-card audio { width: 100%; display: block; margin-bottom: 6px; }
+
+    p a { color: black; text-decoration: underline; }
+    p a:hover { text-decoration: none; }
+
+    @media (max-width: 768px) {
+      body { margin: 20px; }
+      nav { position: relative; top: 0; left: 0; text-align: center; margin-bottom: 20px; }
+      nav ul { display: flex; justify-content: center; }
+      nav ul li { margin: 0 10px; }
+      main { margin-left: 0; padding: 10px; }
+      img.logo { position: relative; display: block; margin: 0 auto 25px; }
+      .clearfix { max-width: 100%; margin: 0 auto; }
+      .image-row { flex-direction: column; }
+      .image-row img { max-width: 100%; flex-basis: 100%; }
     }
 
-    /* Reverse direction on hover (for desktop only) */
-    /* @media (min-width: 769px) {
-      img.logo:hover {
-        animation-direction: reverse;
-        animation-play-state: running;
-      }
-    } */
+    /* ======================================================
+       Flip Slider (fixed frame, hover caption)
+       ====================================================== */
+    .flip-slider {
+      --w: 480px;
+      --h: 320px;
+      width: var(--w);
+      margin: 28px auto 10px;
+      position: relative;
+      font: inherit;
+    }
+    .flip-slider input[type="radio"] { position: absolute; left: -9999px; opacity: 0; }
+    .flip-inner { position: relative; }
 
-     /* Stop spinning on hover (for desktop) */
-        @media (min-width: 769px) {
-        img.logo:hover {
-        animation-play-state: paused;
-        }
-        }
+    .flip-frame {
+      position: relative;
+      width: 100%;
+      height: var(--h);
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.08);
+      overflow: hidden;
+      background: #f6f6f6;
+    }
+    .flip-frame img {
+      display: none;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
 
+    .flip-frame::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 6px 10px;
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.3;
+      opacity: 0;
+      transition: opacity .2s ease;
+      pointer-events: none;
+    }
+    .flip-frame:hover::after { opacity: 1; }
 
-        .clearfix {
-            max-width: 600px;   /* your text column width */
-            clear: both;
-        }
+    #b1:checked ~ .flip-inner .flip-frame img:nth-child(1),
+    #b2:checked ~ .flip-inner .flip-frame img:nth-child(2),
+    #b3:checked ~ .flip-inner .flip-frame img:nth-child(3),
+    #b4:checked ~ .flip-inner .flip-frame img:nth-child(4),
+    #b5:checked ~ .flip-inner .flip-frame img:nth-child(5),
+    #b6:checked ~ .flip-inner .flip-frame img:nth-child(6),
+    #b7:checked ~ .flip-inner .flip-frame img:nth-child(7),
+    #b8:checked ~ .flip-inner .flip-frame img:nth-child(8),
+    #b9:checked ~ .flip-inner .flip-frame img:nth-child(9) { display: block; }
 
-        /* 🔧 IMAGE ROWS — apply on all screen sizes */
-        .image-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin: 16px 0;
-        }
-        .image-row img {
-            flex: 0 0 48%;  /* two images per row */
-            max-width: 48%;
-            height: auto;
-            display: block;
-        }
+    .flip-nav {
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      transform: translateY(-50%);
+      z-index: 2;
+      pointer-events: none;
+      display: none;
+    }
+    .flip-nav label {
+      pointer-events: auto;
+      position: absolute;
+      width: 32px; height: 32px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.96);
+      color: #0c6bd2;
+      display: grid; place-items: center;
+      box-shadow: 0 1px 6px rgba(0,0,0,.08);
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .flip-nav .prev { left: 8px; }
+    .flip-nav .next { right: 8px; }
+    .flip-nav .prev::before { content: "‹"; }
+    .flip-nav .next::before { content: "›"; }
 
-.audio-card {
-  margin: 18px 0 28px;
-  padding: 14px 16px;
-  border: 1px solid #fdcbcb;
-  border-radius: 12px;
-  background: #fffbe6;
-  max-width: 600px;
-}
+    #b1:checked ~ .flip-inner .nav-1,
+    #b2:checked ~ .flip-inner .nav-2,
+    #b3:checked ~ .flip-inner .nav-3,
+    #b4:checked ~ .flip-inner .nav-4,
+    #b5:checked ~ .flip-inner .nav-5,
+    #b6:checked ~ .flip-inner .nav-6,
+    #b7:checked ~ .flip-inner .nav-7,
+    #b8:checked ~ .flip-inner .nav-8,
+    #b9:checked ~ .flip-inner .nav-9 { display: block; }
 
-.audio-title {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  margin-bottom: 4px;
-  line-height: 1.25;
-  color: #000;
-}
+    .flip-thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 0 0;
+      flex-wrap: wrap;
+    }
+    .flip-thumbs label {
+      width: 40px; height: 28px;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 1px 6px rgba(0,0,0,.08);
+      opacity: .6;
+      cursor: pointer;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .flip-thumbs label:hover { opacity: .95; transform: translateY(-1px); }
 
-.audio-note {
-  font-weight: 400;
-  font-style: italic;
-  color: #444;
-}
+    #b1:checked ~ .flip-inner .flip-thumbs label[for="b1"],
+    #b2:checked ~ .flip-inner .flip-thumbs label[for="b2"],
+    #b3:checked ~ .flip-inner .flip-thumbs label[for="b3"],
+    #b4:checked ~ .flip-inner .flip-thumbs label[for="b4"],
+    #b5:checked ~ .flip-inner .flip-thumbs label[for="b5"],
+    #b6:checked ~ .flip-inner .flip-thumbs label[for="b6"],
+    #b7:checked ~ .flip-inner .flip-thumbs label[for="b7"],
+    #b8:checked ~ .flip-inner .flip-thumbs label[for="b8"],
+    #b9:checked ~ .flip-inner .flip-thumbs label[for="b9"] {
+      opacity: 1;
+      outline: 2px solid #fff;
+      box-shadow: 0 0 0 2px #0c6bd2;
+    }
 
-.audio-meta {
-  font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  color: #444;
-  font-style: italic;
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
+    .flip-thumbs label[for="b1"] { background-image: url('./images/atlas1.jpg'); }
+    .flip-thumbs label[for="b2"] { background-image: url('./images/atlas2.jpg'); }
+    .flip-thumbs label[for="b3"] { background-image: url('./images/atlas3.jpg'); }
+    .flip-thumbs label[for="b4"] { background-image: url('./images/atlas4.jpg'); }
+    .flip-thumbs label[for="b5"] { background-image: url('./images/atlas5.jpg'); }
+    .flip-thumbs label[for="b6"] { background-image: url('./images/atlas6.jpg'); }
+    .flip-thumbs label[for="b7"] { background-image: url('./images/atlas7.jpg'); }
+    .flip-thumbs label[for="b8"] { background-image: url('./images/atlas8.jpg'); }
+    .flip-thumbs label[for="b9"] { background-image: url('./images/atlas9.jpg'); }
 
-.audio-card audio {
-  width: 100%;
-  display: block;
-  margin-bottom: 6px; /* ensure comfy tap target on mobile */
-}
-
-@media (max-width: 768px) {
-  .audio-meta { font-size: 13px; }
-  .audio-card { max-width: 100%; padding: 12px 14px; }
-}
-
-
-/* hafize asllani hyperlink */
-p a {
-  color: black;
-  text-decoration: underline;
-}
-p a:hover {
-  text-decoration: none;
-}
-
-
-
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            body { margin: 20px; }
-
-            nav {
-                position: relative;
-                top: 0;
-                left: 0;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            nav ul { display: flex; justify-content: center; }
-            nav ul li { margin: 0 10px; }
-
-            main { margin-left: 0; padding: 10px; }
-
-            img.logo {
-                position: relative;
-                display: block;
-                margin: 0 auto 25px;
-            }
-
-            .clearfix { max-width: 100%; margin: 0 auto; }
-
-            /* Stack images on phones so they’re not cramped */
-            .image-row { flex-direction: column; }
-            .image-row img { max-width: 100%; flex-basis: 100%; }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .flip-slider { --w: 88vw; --h: calc(88vw * 0.66); }
+      .flip-thumbs label { width: 11vw; height: 8vw; }
+    }
+  </style>
 </head>
+
 <body>
+  <a href="index.html"><img src="./images/compass6.png" alt="Logo" class="logo"></a>
 
-    <a href="index.html">
-        <img src="./images/compass6.png" alt="Logo" class="logo">
-    </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">about</a></li>
+      <li><a href="research.html">research</a></li>
+      <li><a href="sound-atlas.html">sound atlas</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">about</a></li>
-            <li><a href="research.html">research</a></li>
-            <li><a href="sound-atlas.html">sound atlas</a></li>
-        </ul>
-    </nav>
+  <main>
+    <section id="sound-atlas">
+      <div class="clearfix">
+        <h1>Atlas of Albanian Sound</h1>
 
-    <main>
-        <section id="sound-atlas">
-            <div class="clearfix">
-                <h1>Atlas of Albanian Sound</h1>
+        <div class="image-row">
+          <img src="./images/sound2.png" alt="Sound Image 1" loading="lazy">
+          <img src="./images/sound3.png" alt="Sound Image 2" loading="lazy">
+        </div>
 
-                <!-- Top two images -->
-                <div class="image-row">
-                    <img src="./images/sound2.png" alt="Sound Image 1" loading="lazy">
-                    <img src="./images/sound3.png" alt="Sound Image 2" loading="lazy">
-                </div>
+        <p>Started in 2023, the <em><strong>Atlas of Albanian Sound</strong></em> is an ongoing creative project that maps the entanglements of music, memory, and place during an often overlooked period: early 20th century Albania. The fall of the Ottoman Empire and the subsequent drawing of nation-state borders across the Balkans displaced and attempted to erase many communities, particularly Muslim, Roma, and Jewish groups. This project brings together the most comprehensive collection of 78 rpm recordings, discographic catalogs, and historical research to trace sonic geographies across Albania and its diasporas. It is an attempt to retrace the steps of these often cross-border and multiethnic communities by uncovering the music and the musicians who carried their stories through sound.</p>
 
-                <p>Started in 2023, the <em><strong>Atlas of Albanian Sound</strong></em> is an ongoing creative project that maps the entanglements of music, memory, and place during an often overlooked period: early 20th century Albania. The fall of the Ottoman Empire and the subsequent drawing of nation-state borders across the Balkans displaced and attempted to erase many communities, particularly Muslim, Roma, and Jewish groups. This project brings together the most comprehensive collection of 78 rpm recordings, discographic catalogs, and historical research to trace sonic geographies across Albania and its diasporas. It is an attempt to retrace the steps of these often cross-border and multiethnic communities by uncovering the music and the musicians who carried their stories through sound.</p>
+        <p>Through collaborations with private collectors in the US and Greece, I am currently digitizing and remastering more than 300 songs originally recorded on shellac discs—from the first known recording of the Albanian language in 1906 to the haunting voice of <a href="https://www.youtube.com/watch?v=z8SRLunraPo" target="_blank">Hafize Asllani</a> from Leskovik, Labë iso-polyphonies, highland <em>çifteli</em> riffs, the marching-band anthems once performed for King Zog, and everything in between. I am also building a digital database that documents the songs, the musicians, and the communities behind them. The goal is to share these recordings through a freely accessible interactive archive, where sound, place, and history can be explored together.</p>
 
-                <p>Through collaborations with private collectors in the US and Greece, I am currently digitizing and remastering more than 300 songs originally recorded on shellac discs—from the first known recording of the Albanian language in 1906 to the haunting voice of <a href="https://www.youtube.com/watch?v=z8SRLunraPo" target="_blank">Hafize Asllani</a> in Leskovik, Labë iso-polyphonies, highland <em>çifteli</em> riffs, the marching-band anthems once performed for King Zog... and everything in between. I am also building a digital database that documents the songs, the musicians, and the communities behind them. The goal is to share these recordings through a freely accessible interactive archive, where sound, place, and history can be explored together.</p>
+        <p>As a geographer, I am interested in how speaking and listening—or, the <em><strong>oral</strong></em> and the <strong><em>aural</em></strong>—can serve as cartographic method, and how this in turn can reveal connections, displacements, and resonances that remain invisible on conventional maps and archives. Through this work, I've come to understand sound and music as living, collective spaces of memory, and as invitations to reimagine how we chart and navigate our world(s).</p>
 
-                <p>As a geographer, I am interested in how speaking and listening—or, the <em><strong>oral</strong></em> and the <strong><em>aural</em></strong>—can serve as cartographic method, and how this in turn can reveal connections, displacements, and resonances that remain invisible on conventional maps and archives. Through this work, I've come to understand sound and music as living, collective spaces of memory, and as invitations to reimagine how we chart and navigate our world(s).</p>
-                <p>Can the map serve as archive?</p>
-                <p>Can the archive serve as map?</p>
-                <p>How does past resonate with present?</p>
-                <p>Sound is the territory. Listening is the atlas.</p>
-                
-            <!-- AUDIO: Valle Me Dy - Konitsa (real name unknown) -->
-<div class="audio-card">
-  <div class="audio-title">
-    Valle Me Dy — Konitsa <span class="audio-note">(real name unknown)</span>
-  </div>
-  <div class="audio-meta">
-    Recorded in Athens, 1947, on the Balkan label.<br>
-    Courtesy of Christopher King. Transfer by Ina Shkurti.
-  </div>
+        <p>Can the map serve as archive?</p>
+        <p>Can the archive serve as map?</p>
+        <p>How does past resonate with present?</p>
+        <p>The sound is the territory. Listening is the atlas.</p>
 
-  <audio
-    id="valleAudio"
-    controls
-    preload="metadata"
-    controlsList="nodownload noplaybackrate noremoteplayback"
-    oncontextmenu="return false"
-  >
-    Your browser does not support the audio element.
-  </audio>
-</div>
+        <div class="audio-card">
+          <div class="audio-title">Valle Me Dy — Konitsa <span class="audio-note">(real name unknown)</span></div>
+          <div class="audio-meta">Recorded in Athens, 1947, on the Balkan label.<br>Courtesy of Christopher King. Transfer by Ina Shkurti.</div>
+          <audio id="valleAudio" controls preload="metadata" controlsList="nodownload noplaybackrate noremoteplayback" oncontextmenu="return false"></audio>
+        </div>
 
-<script>
-  // Disable right-click on audio
-  document.addEventListener('contextmenu', e => {
-    if (e.target.closest('audio')) e.preventDefault();
-  });
+        <p>* * *</p>
+        <p><em>This project is a labor of love and has benefited greatly from the generosity of the collectors, folk musicians, elders, and scholars who have shared their knowledge and time with me.</em></p>
+        <p><em>Interactive map archive coming soon.</em></p>
 
-  (async function mountAudio() {
-    const audio = document.getElementById('valleAudio');
-    const srcPath = './audio/812-A.mp3';
+        <!-- ====== Flip Slider (9 images) ====== -->
+        <div class="flip-slider">
+          <input type="radio" name="ctrl" id="b1" checked>
+          <input type="radio" name="ctrl" id="b2">
+          <input type="radio" name="ctrl" id="b3">
+          <input type="radio" name="ctrl" id="b4">
+          <input type="radio" name="ctrl" id="b5">
+          <input type="radio" name="ctrl" id="b6">
+          <input type="radio" name="ctrl" id="b7">
+          <input type="radio" name="ctrl" id="b8">
+          <input type="radio" name="ctrl" id="b9">
 
-    try {
-      // IMPORTANT: this will fail if you open the page via file://
-      // Use a local server instead (e.g., `python -m http.server`)
-      const res = await fetch(srcPath, { credentials: 'same-origin' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      audio.src = url;
-      audio.load();
-
-      // Clean up the blob URL when leaving the page
-      window.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
-    } catch (err) {
-      console.warn('Fetch failed, falling back to direct src:', err);
-      // Fallback so the player is usable
-      audio.src = srcPath;
-      audio.load();
-    }
-  })();
-</script>
-
-
-                 <p>* * *</p>
-                <p><em>This project is a labor of love and has benefited greatly from the generosity of the collectors, folk musicians, elders, and scholars who have shared their knowledge and time with me.</em></p>
-                <p><em>Interactive map archive coming soon.</em></p>
-                <!-- Bottom two images -->
-                <div class="image-row">
-                    <img src="./images/sound.jpg" alt="Sound Image 3" loading="lazy">
-                    <img src="./images/sound1.jpg" alt="Sound Image 4" loading="lazy">
-                </div>
+          <div class="flip-inner">
+            <div class="flip-frame">
+              <img src="./images/atlas1.jpg" alt="RCA Victor's Delvina Zeza Delvina." loading="lazy">
+              <img src="./images/atlas2.jpg" alt="Building the database." loading="lazy">
+              <img src="./images/atlas3.jpg" alt="Workstation. Konitsa." loading="lazy">
+              <img src="./images/atlas4.jpg" alt="Postcard of Roma musicians from Durrës. Circa 1930(?)" loading="lazy">
+              <img src="./images/atlas5.jpg" alt="Some light reading. Edward Capps, 1963." loading="lazy">
+              <img src="./images/atlas6.jpg" alt="Faik Konitza's house. Konitsa village." loading="lazy">
+              <img src="./images/atlas7.jpg" alt="A çamiko dance engraved on the entrance of Hamko's House." loading="lazy">
+              <img src="./images/atlas8.jpg" alt="Cats of Konitsa. Do they speak Greek or Albanian?" loading="lazy">
+              <img src="./images/atlas9.jpg" alt="Vjosa River Valley." loading="lazy">
             </div>
-        </section>
-    </main>
 
+            <div class="flip-nav nav-1"><label class="prev" for="b9"></label><label class="next" for="b2"></label></div>
+            <div class="flip-nav nav-2"><label class="prev" for="b1"></label><label class="next" for="b3"></label></div>
+            <div class="flip-nav nav-3"><label class="prev" for="b2"></label><label class="next" for="b4"></label></div>
+            <div class="flip-nav nav-4"><label class="prev" for="b3"></label><label class="next" for="b5"></label></div>
+            <div class="flip-nav nav-5"><label class="prev" for="b4"></label><label class="next" for="b6"></label></div>
+            <div class="flip-nav nav-6"><label class="prev" for="b5"></label><label class="next" for="b7"></label></div>
+            <div class="flip-nav nav-7"><label class="prev" for="b6"></label><label class="next" for="b8"></label></div>
+            <div class="flip-nav nav-8"><label class="prev" for="b7"></label><label class="next" for="b9"></label></div>
+            <div class="flip-nav nav-9"><label class="prev" for="b8"></label><label class="next" for="b1"></label></div>
+
+            <div class="flip-thumbs">
+              <label for="b1"></label><label for="b2"></label><label for="b3"></label><label for="b4"></label>
+              <label for="b5"></label><label for="b6"></label><label for="b7"></label><label for="b8"></label><label for="b9"></label>
+            </div>
+          </div>
+        </div>
+        <!-- ====== /Flip Slider ====== -->
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Disable right-click on audio
+    document.addEventListener('contextmenu', e => {
+      if (e.target.closest('audio')) e.preventDefault();
+    });
+
+    // Mount audio securely
+    (async function mountAudio() {
+      const audio = document.getElementById('valleAudio');
+      const srcPath = './audio/812-A.mp3';
+      try {
+        const res = await fetch(srcPath, { credentials: 'same-origin' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        audio.src = url;
+        audio.load();
+        window.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
+      } catch (err) {
+        console.warn('Fetch failed, falling back:', err);
+        audio.src = srcPath;
+        audio.load();
+      }
+    })();
+
+    // Hover caption logic (shows current image's alt on hover)
+    (function initHoverCaption() {
+      const frame  = document.querySelector('.flip-frame');
+      const slides = Array.from(frame.querySelectorAll('img'));
+      const radios = Array.from(document.querySelectorAll('.flip-slider input[type="radio"]'));
+      // Also set native tooltips
+      slides.forEach(img => { if (!img.title) img.title = img.alt || ''; });
+
+      function updateCaption() {
+        const idx = radios.findIndex(r => r.checked);
+        if (idx > -1 && slides[idx]) {
+          frame.setAttribute('data-caption', slides[idx].alt || '');
+        }
+      }
+
+      radios.forEach(r => r.addEventListener('change', updateCaption));
+      updateCaption(); // run on load
+    })();
+  </script>
 </body>
 </html>
