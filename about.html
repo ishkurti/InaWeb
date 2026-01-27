@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ina shkurti | cartomemorias</title>
+    <link rel="icon" type="image/png" href="./images/compass6.png">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet"> 
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"> -->
+
+    <style>
+        body {
+            font-family: 'Barlow', sans-serif;
+            margin: 40px;
+            background-color: white;
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+        }
+
+        nav {
+            position: absolute;
+            top: 150px; /* Moved down to allow space for logo */
+            left: 30px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            /*font-weight: bold; */
+            font-family: 'Barlow', sans-serif;
+            color: #0c6bd2;
+            font-size: 18px; /* Adjust the font size as needed */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgb(255, 250, 107);
+            color: black;
+            text-decoration: underline;
+        }
+
+        main {
+        margin-left: 150px;
+        padding: 20px;
+        }
+
+        h1 {
+        font-family: 'Staatliches', sans-serif;
+        font-weight: bolder;
+        font-size: 28px;   /* pick a size you like */
+        color: #000000;
+        margin-top: 0px;
+        text-align: left;  /* makes sure they’re aligned the same */
+        }
+
+        h2 {
+            font-family: 'Barlow';
+            font-weight: bold;
+            color: #196cc4;
+            margin-top: 0px; 
+            /* font-size: 22px; */
+        }
+
+        img.logo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 135px; /* Adjust size as needed */
+            height: auto;
+            rotate: 10deg;
+        }
+
+        /* Animation for spinning the logo */
+        @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        }
+ 
+       /* Apply on hover only for desktop */
+       /* @media (min-width: 769px) {
+        img.logo:hover {
+        animation: spin 5s linear infinite;
+        transform-origin: center;
+        }
+        } */
+
+        /* Spin continuously by default */
+        img.logo {
+        animation: spin 20s linear infinite;
+        transform-origin: center;
+        }
+
+        /* Stop spinning on hover (for desktop) */
+        @media (min-width: 769px) {
+        img.logo:hover {
+        animation-play-state: paused;
+        }
+        }
+
+        .profile-container {
+            margin-top: 20px;
+            max-width: 800px; /* Allow for a larger profile image */
+        }
+
+        img.profile {
+            float: left;
+            margin-right: 20px; /* Add space between the image and the text */
+            max-width: 365px; /* Make the profile image larger */
+            height: auto; /* Maintains the aspect ratio */
+            border-radius: 7px;
+        }
+
+        p {
+            text-align: left;
+
+        }
+
+        /* Media query for mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                margin: 20px;
+            }
+
+            nav {
+                position: relative;
+                top: 0;
+                left: 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            img.logo {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 25px;
+            }
+
+            .profile-container {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            img.profile {
+                position: relative;
+                float: none;
+                margin-right: 0;
+                display: block;
+                margin: 0 auto;
+                width: 300px;
+            }
+
+            p {
+                text-align: center;
+            }
+           
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Wrap the logo image inside an anchor tag for redirection -->
+     <a href="index.html">
+        <img src="./images/compass6.png" alt="Logo" class="logo">
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="about.html">about</a></li>
+            <li><a href="research.html">work</a></li>
+            <li><a href="sound-atlas.html">sound atlas</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <!-- <li><a href="consulting.html">consulting</a></li> -->
+        </ul>
+    </nav>
+
+    <main>
+        <section id="bio">
+            <h1>INA SHKURTI</h1>
+            <div class="profile-container">
+                <img src="./images/profile.jpg" alt="Ina Shkurti Picture" class="profile">
+               <!-- <h2>Ina Shkurti</h2> --> 
+                <!-- <p style="color: rgb(255, 255, 255); font-size: 1px;">amazon frontlines.</p> -->
+               <p>I am a geographer with over a decade of experience collaborating with communities and organizations across Latin America and Amazonia. My work centers on territorial, cultural, and oral history mapping as tools for supporting collective rights and self-governance.</p>
+                <p>I specialize in community-based mapping methods and cartographies, including facilitating field trainings, designing data stewardship strategies, and producing maps for legal advocacy. My approach is grounded in long-term partnerships and a commitment to challenging dominant narratives by centering local and Indigenous perspectives.</p>
+                <p>I hold a BA in Geography and a Certificate in Geographic Information Science and Technology from the University of Massachusetts Amherst and am currently pursuing graduate studies at UNC-Chapel Hill.</p> 
+              <!-- <p>I hold a BA in Geography and a Certificate in Geographic Information Science and Technology from the University of Massachusetts Amherst and am pursuing a PhD at UNC-Chapel Hill. I am fluent in English, Spanish, Italian, and Albanian, and am currently learning Portuguese.</p> -->
+                <!--<p>I live between North Carolina and Ecuador.</p> -->
+                <p>I am fluent in English, Spanish, Italian, and Albanian, and am currently learning Brazilian Portuguese.</p>
+               <!-- <p>Open to collaborations. You can reach me at: arupomaps<em><strong>[at]</strong></em>gmail<em><strong>[dot]</strong></em>com.</p> -->
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
